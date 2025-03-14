@@ -1,13 +1,11 @@
 import streamlit as st
 import sqlite3
 from datetime import datetime, timedelta
-import pyrebase4
+import firebase_admin
+from firebase_admin import credentials, auth
 
-
-
-
-
-
+cred = credentials.Certificate("path/to/serviceAccountKey.json")
+firebase_admin.initialize_app(cred)
 
 # Database setup
 conn = sqlite3.connect("tasks.db", check_same_thread=False)
